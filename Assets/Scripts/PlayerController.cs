@@ -12,11 +12,18 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     private float shootDistance = 4f;
     [SerializeField]
+    private float gunDmg = 1f;
+    [SerializeField]
     private ParticleSystem shootPS;
     [SerializeField]
+    private GameObject primaryWpn;
+    [SerializeField]
+    private GameObject secondaryWpn;
+    [SerializeField]
+
     private float health;
     
-
+    private GunController gunController;
     private Rigidbody mRb;
     private Vector2 mDirection;
     private Vector2 mDeltaLook;
@@ -24,6 +31,7 @@ public class PlayerController : MonoBehaviour
     private GameObject debugImpactSphere;
     private GameObject bloodObjectParticles;
     private GameObject otherObjectParticles;
+    private bool primaryEquipped;
 
     private void Start()
     {
@@ -35,6 +43,10 @@ public class PlayerController : MonoBehaviour
         otherObjectParticles = Resources.Load<GameObject>("GunShot_Smoke_FX Variant");
 
         Cursor.lockState = CursorLockMode.Locked;
+
+        gunController = secondaryWpn.GetComponent<GunController>();
+        primaryEquipped = false;
+        UpdateGunStats();
     }
 
     private void FixedUpdate()
@@ -70,6 +82,22 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    private void OnSwitch(InputValue value)
+    {
+        if(primaryEquipped){
+            gunController = secondaryWpn.GetComponent<GunController>();
+        }else
+        {
+            gunController = primaryWpn.GetComponent<GunController>();
+        }
+
+        primaryWpn.SetActive(!primaryEquipped);
+        secondaryWpn.SetActive(primaryEquipped);        
+        primaryEquipped = !primaryEquipped;
+       
+        UpdateGunStats();
+    }
+
     private void Shoot()
     {
         shootPS.Play();
@@ -87,7 +115,7 @@ public class PlayerController : MonoBehaviour
                 var bloodPS = Instantiate(bloodObjectParticles, hit.point, Quaternion.identity);
                 Destroy(bloodPS, 3f);
                 var enemyController = hit.collider.GetComponent<EnemyController>();
-                enemyController.TakeDamage(1f);
+                enemyController.TakeDamage(gunDmg);
             }else
             {
                 var otherPS = Instantiate(otherObjectParticles, hit.point, Quaternion.identity);
@@ -116,6 +144,13 @@ public class PlayerController : MonoBehaviour
             TakeDamage(1f);
         }
         
+    }
+
+    private void UpdateGunStats()
+    {
+        gunDmg = gunController.gunDmg;
+        shootDistance = gunController.shootDistance;
+        shootPS = gunController.shootPS;
     }
 
 }

@@ -21,8 +21,9 @@ public class PlayerController : MonoBehaviour
     private GameObject secondaryWpn;
     [SerializeField]
 
-    private float health;
+    public float health;
     
+
     private GunController gunController;
     private Rigidbody mRb;
     private Vector2 mDirection;

@@ -211,7 +211,7 @@ MonoBehaviour:
   controller: {fileID: 4357442218928485898}
 --- !u!95 &2363502264247539193
 Animator:
-  serializedVersion: 5
+  serializedVersion: 4
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -228,7 +228,7 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &2522871040503150170
 GameObject:
   m_ObjectHideFlags: 0
@@ -405,7 +405,7 @@ GameObject:
   - component: {fileID: 4357442218928485902}
   m_Layer: 0
   m_Name: DemonMelee
-  m_TagString: Untagged
+  m_TagString: Enemigos
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -508,11 +508,11 @@ GameObject:
   - component: {fileID: 4357442218991213262}
   m_Layer: 0
   m_Name: MeleeHitboxL
-  m_TagString: Untagged
+  m_TagString: Enemigo-Attack
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &4357442218991213263
 Transform:
   m_ObjectHideFlags: 0
@@ -553,11 +553,11 @@ GameObject:
   - component: {fileID: 4357442219782473389}
   m_Layer: 0
   m_Name: MeleeHitboxR
-  m_TagString: Untagged
+  m_TagString: Enemigo-Attack
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &4357442219782473388
 Transform:
   m_ObjectHideFlags: 0

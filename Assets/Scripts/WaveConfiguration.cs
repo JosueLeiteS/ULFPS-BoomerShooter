@@ -26,7 +26,7 @@ public class WaveConfiguration : MonoBehaviour
     {
         textMeshProMin.text = sliderMin.value.ToString();
         textMeshProMax.text = sliderMax.value.ToString();
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.P))
         {
             if (gameManager.isPaused && sliderMin.value < sliderMax.value)
             {

@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.SceneManagement;
+
 public class SpriteManager : MonoBehaviour
 {
    public Sprite[] sprites;
@@ -42,6 +44,11 @@ public class SpriteManager : MonoBehaviour
         }
         else {
             image.sprite = sprites[4];
+        }
+
+        if(porcentage < 0)
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
     }
     void SetearTexto() {

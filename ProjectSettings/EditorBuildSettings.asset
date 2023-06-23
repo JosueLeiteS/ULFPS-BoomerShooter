@@ -4,6 +4,12 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/Test.unity
+    guid: 22f648e0c620d6647bba276f53aad734
+  - enabled: 1
+    path: Assets/Scenes/LvlLaberinto.unity
+    guid: befbd94eb9cdc81438d6df3024bc000a
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: 689c99b2f086a744686b78cd31c0ea4a, type: 2}
